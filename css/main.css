@@ -1,0 +1,574 @@
+/* 
+*自定义样式注意事项
+*1.样式都通过ID去设置，避免与bootstrap冲突
+*2.尽可能使用直接子代选择器
+*/
+
+body{
+    font-family: "Helvetica Neue,Helvetica, Microsoft Yahei"
+}
+
+
+/* 引入字体和字体图标 */
+@font-face{  /*这些字体图标文件是项目开发者自己做的，没有通用性，所以20~33行代码不知也罢*/
+    font-family: 'pili';
+    src: url('../font/MiFie-Web-Font.eot') format('embedded-opentype'),
+        url('../font/MiFie-Web-Font.svg') format('svg'),
+        url('../font/MiFie-Web-Font.ttf') format('truetype'),
+        url('../font/MiFie-Web-Font.woff') format('woff');
+
+}
+
+/* 给字体图标的容器i加入同一样式 */
+i{
+  font-style: normal;
+}
+
+/* bootstrap扩展 */
+/* 修改bt的navbar-defalut类为navbar-mycss */
+.navbar-mycss {
+    background-color: #fff;
+    border-color: #f5f5f5;
+    margin-bottom: 0; 
+  }
+  .navbar-mycss .navbar-brand {
+    color: #777;
+    height: 80px;
+  }
+  .navbar-mycss .navbar-brand:hover,
+  .navbar-mycss .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+  }
+  .navbar-mycss .navbar-text {
+    color: #777;
+  }
+  .navbar-mycss .navbar-nav > li > a {
+    color: #777;
+    line-height: 50px;
+  }
+  .navbar-mycss .navbar-nav > li > a:hover,
+  .navbar-mycss .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: transparent;
+    border-bottom: 2px solid #e92322;
+  }
+  .navbar-mycss .navbar-nav > .active > a,
+  .navbar-mycss .navbar-nav > .active > a:hover,
+  .navbar-mycss .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: transparent;
+    border-bottom: 2px solid #e92322;
+  }
+  .navbar-mycss .navbar-nav > .disabled > a,
+  .navbar-mycss .navbar-nav > .disabled > a:hover,
+  .navbar-mycss .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+  }
+  .navbar-mycss .navbar-nav > .open > a,
+  .navbar-mycss .navbar-nav > .open > a:hover,
+  .navbar-mycss .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+  }
+  @media (max-width: 767px) {
+    .navbar-mycss .navbar-nav .open .dropdown-menu > li > a {
+      color: #777;
+    }
+    .navbar-mycss .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-mycss .navbar-nav .open .dropdown-menu > li > a:focus {
+      color: #333;
+      background-color: transparent;
+    }
+    .navbar-mycss .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-mycss .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-mycss .navbar-nav .open .dropdown-menu > .active > a:focus {
+      color: #555;
+      background-color: #e7e7e7;
+    }
+    .navbar-mycss .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-mycss .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-mycss .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+      color: #ccc;
+      background-color: transparent;
+    }
+  }
+  .navbar-mycss .navbar-toggle {
+    border-color: #ddd;
+    margin-top: 23px;
+    margin-bottom: 23px;
+  }
+  .navbar-mycss .navbar-toggle:hover,
+  .navbar-mycss .navbar-toggle:focus {
+    background-color: #ddd;
+  }
+  .navbar-mycss .navbar-toggle .icon-bar {
+    background-color: #888;
+  }
+  .navbar-mycss .navbar-collapse,
+  .navbar-mycss .navbar-form {
+    border-color: #e7e7e7;
+  }
+  .navbar-mycss .navbar-link {
+    color: #777;
+  }
+  .navbar-mycss .navbar-link:hover {
+    color: #333;
+  }
+  .navbar-mycss .btn-link {
+    color: #777;
+  }
+  .navbar-mycss .btn-link:hover,
+  .navbar-mycss .btn-link:focus {
+    color: #333;
+  }
+  .navbar-mycss .btn-link[disabled]:hover,
+  fieldset[disabled] .navbar-mycss .btn-link:hover,
+  .navbar-mycss .btn-link[disabled]:focus,
+  fieldset[disabled] .navbar-mycss .btn-link:focus {
+    color: #ccc;
+  }
+
+  /* 修改bootstrap的面板样式 */
+  .mypanel {
+    border-color: #ddd;
+    margin: 20px 0;
+    position: relative;
+    box-shadow: 1px 1px 5px #ccc;
+  }
+  .mypanel > .panel-heading {
+    color: #333;
+    text-align: center;
+    border-left: 1px dashed #c0c0c0;
+    float: right;
+    width: 120px;
+    height: 150px;
+    padding: 0;
+  }
+  .mypanel > .panel-body{
+    margin-right: 120px;
+    height: 150px;
+    text-align: center;
+  }
+  .mypanel > .panel-heading::before{
+    content:" ";
+    width:16px;
+    height:16px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    position: absolute;
+    right: 112px;
+    top: -8px;
+    
+  }
+  .mypanel > .panel-body::after{
+    content:" ";
+    width:16px;
+    height:16px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    position: absolute;
+    bottom: -8px;
+    right: 112px;
+    box-shadow: 0px 4px 4px #ccc inset;
+  }
+
+  .mypanel.active{
+    background-color: #e92322;
+    color:#fff;
+  }
+  .mypanel.active > .panel-heading{
+    color:#fff;
+  }
+  .mypanel.disabled{
+    background-color: #e0e0e0;
+  }
+
+  .mypanel > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #ddd;
+  }
+  .mypanel > .panel-heading .badge {
+    color: #f5f5f5;
+    background-color: #333333;
+  }
+  .mypanel > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: #ddd;
+  }
+
+/* 属性选择器指定满足条件的类使用字体 ,前者以开头，后者包含*/
+[class^="icon-"],[class*=" icon-"]{
+    font-family: pili;
+}
+
+.icon-mobilephone::before{
+    content:"\e908";
+    font-size: 13px;
+    font-style: normal;
+}
+.icon-telephone::before{
+    content:"\e909";
+    font-size: 15px;
+    font-style: normal;
+}
+
+.icon-logo::before{
+    content: "\e93e";
+    font-style: normal;
+}
+
+.icon-icon::before{
+    content: "\e920";
+    font-style: normal;
+}
+/* 最初写样式时，先从上向下地逐一把版块高度撑起来 */
+/* 头部样式 */
+.navbar-mycss{
+  top: 0;
+  width:100%;
+}
+/* 将栅格元素高度撑起来 */
+#header > .topbar .container > .row > div{
+    height: 40px;
+}
+/* 给2、3、4栅格元素添加右边框 */
+#header > .topbar .container > .row > div + div{
+    border-left: 1px solid #c0c0c0;
+}
+#header > .topbar{
+    height: 40px;
+    border-bottom: 1px solid #c0c0c0;
+    line-height: 40px;
+}
+
+#header > .topbar .container{
+    height: 40px;
+    border-bottom: 1px solid pink;
+}
+/* 头部栅格元素字体 */
+#header .row > div{
+    font-size: 12px;
+    color: #888;
+}
+
+#header .contact{
+    text-decoration: none;
+    color: #888;
+}
+
+
+/* 实现a：hover显示元素 */
+#header .contact > img{
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -90px;
+    top: 28px;
+}
+#header .contact:hover > img{
+    display: block;
+}
+
+/* header第二部分导航条样式 */
+
+/* logo样式 */
+#header .icon-icon{
+    font-size: 50px;
+    color: #e92322;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+#header .icon-logo{
+    font-size: 32px;
+    color:#333;
+    vertical-align: middle;
+}
+/* ul样式已在bootstrap扩展中进行 */
+
+
+/* 测试样式 */
+/* section{
+    height:200px;
+    background-color: #fff;
+} */
+
+/* section:nth-of-type(2n+1){
+
+    background-color: #f5f5f5;
+} */
+/* 广告轮播样式 */
+/* 大图样式 */
+@media(min-width:768px){
+  #mycarousel .carousel-inner .item{
+    height: 410px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+/* 小图样式 */
+#mycarousel .carousel-inner .item > img{
+  width: 100%;
+}
+
+/* 特色介绍样式 */
+#features{
+  padding: 50px 0;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.icon-uniE907:before {
+  content: "\e907";
+}
+
+#features i {
+  font-size: 34px;
+  font-style: normal;
+}
+
+#features > .container > .row > div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#features > .container > .row > div > a{
+  text-decoration: none;
+  
+}
+/* 立即预约样式 */
+#order {
+  border-bottom: 1px solid #c0c0c0;
+  padding: 20px 0;
+}
+
+#order > .container > p {
+  /*line-height: 50px;  不用线高撑P，因为两p浮动在一行，
+  如果缩小一行放不下变两行，那么高度就是俩P的线高100px。因此让#order用padding撑开*/
+  font-size: 14px;
+  margin-bottom: 0;  
+  /* bootstrap会给p一个10px的下边距，在此取消 */
+}
+
+#order > .container > .pull-left > span,
+#order > .container > .pull-left > a {
+  color: #e92322;
+}
+
+#order > .container > .pull-left > a {
+  border-bottom: 1px dashed #e92322;
+}
+
+#order > .container > .pull-left > a:hover {
+  text-decoration: none;
+}
+
+.icon-uniE906:before {
+  content: "\e906";
+  font-size: 16px;
+}
+
+.icon-uniE905:before {
+  content: "\e905";
+  font-size: 16px;
+}
+/* 产品推荐样式 */
+#recommend{
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+/* 覆盖bootstrap标签页的样式 */
+#recommend > .container >.scroll > .nav-tabs{
+  border-bottom: 1px solid #ddd;
+} 
+
+#recommend > .container > .scroll >.nav-tabs > li{}
+
+#recommend > .container > .scroll >.nav-tabs > li.active{}
+
+#recommend > .container > .scroll >.nav-tabs > li > a{
+  color: #555;
+}
+
+#recommend > .container > .scroll >.nav-tabs > li.active > a{
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #e92322;
+}
+
+#recommend > .container > .scroll >.nav-tabs > li > a:hover{
+  background-color: transparent;
+}
+/* 给tabs添加极小下显示滚动条 */
+#recommend > .container > .scroll{
+  /* white-space: nowrap; */
+  /* width:540px; */
+  /* overflow-x: scroll; */
+  /* overflow-y: hidden; */
+}
+/* 新闻列表样式 */
+#news{
+  margin: 50px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+#news > .container > .row  >.news-left{
+  font-size: 18px;
+  text-align: center;
+  border-bottom: 1px dashed #c0c0c0;
+  position: relative;
+}
+#news > .container > .row > .news-left::after{
+  content: ' ';
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  border: 1px solid #c0c0c0;
+  position: absolute;
+  right: -8px;
+  bottom: -5px;
+}
+
+/* 新闻第二部分字体图标 */
+.icon-news01:before {
+  content: "\e90e";
+  font-size: 28px;
+  color: #EAEAEA;
+}
+
+.icon-news02:before {
+  content: "\e90f";
+  font-size: 28px;
+  color: #EAEAEA;
+}
+
+.icon-news03:before {
+  content: "\e910";
+  font-size: 28px;
+  color: #EAEAEA;
+}
+
+.icon-news04:before {
+  content: "\e911";
+  font-size: 28px;
+  color: #EAEAEA;
+}
+/* 覆盖boostrap样式 */
+.nav {
+    padding-left: 20px;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav-pills > li > a{
+  width:60px;
+  border-radius: 33px;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: #e92322;
+}
+@media (max-width: 768px){
+  #news .nav-stacked > li{
+    float:left;
+  }
+}
+/* 合作伙伴样式 */
+#partners ul {
+  padding: 0;
+  list-style: none;
+  width:818px;
+  overflow: hidden;
+}
+#partners ul li {
+  float: left;
+}
+
+#partners ul li + li{
+  border-left:1px dashed #e0e0e0;
+}
+
+#partners ul li a{
+  padding: 10px 20px;
+  font-size: 50px;
+  color: #888;
+}
+#partners ul li a:hover{
+  text-decoration: none;
+}
+.icon-uniE930:hover {
+  color: #df3232;
+}
+
+.icon-uniE930:before {
+  content: "\e946";
+}
+
+.icon-uniE92F:hover {
+  color: #e8380d;
+}
+
+.icon-uniE92F:before {
+  content: "\e92f";
+}
+
+.icon-uniE92E:hover {
+  color: #ed6f00;
+}
+
+.icon-uniE92E:before {
+  content: "\e92e";
+}
+
+.icon-uniE92A:hover {
+  color: #159f69;
+}
+
+.icon-uniE92A:before {
+  content: "\e92a";
+}
+
+.icon-uniE929:hover {
+  color: #07569e;
+}
+
+.icon-uniE929:before {
+  content: "\e929";
+}
+
+.icon-uniE931:hover {
+  color: #004098;
+}
+
+.icon-uniE931:before {
+  content: "\e931";
+}
+
+.icon-uniE92C:hover {
+  color: #d32019;
+}
+
+.icon-uniE92C:before {
+  content: "\e92c";
+}
+
+.icon-uniE92B:hover {
+  color: #3eac4a;
+}
+
+.icon-uniE92B:before {
+  content: "\e92b";
+}
+
+.icon-uniE92D:hover {
+  color: #2bb289;
+}
+
+.icon-uniE92D:before {
+  content: "\e92d";
+}
+/* 脚注样式 */
+#footer{
+    height:200px;
+}
